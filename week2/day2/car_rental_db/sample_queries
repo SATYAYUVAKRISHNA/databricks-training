@@ -1,0 +1,24 @@
+-- Display all cars
+SELECT * FROM cars;
+
+-- Display owner details
+SELECT * FROM owners;
+
+-- Car and owner details
+SELECT c.car_name, c.car_type, o.owner_name
+FROM cars c
+JOIN owners o
+ON c.owner_id = o.owner_id;
+
+-- Rentals based on fare amount
+SELECT * FROM rentals
+WHERE fare_amount > 4000;
+
+-- Total revenue
+SELECT SUM(fare_amount) AS total_revenue
+FROM rentals;
+
+-- Number of times each car rented
+SELECT car_id, COUNT(*) AS rented_count
+FROM rentals
+GROUP BY car_id;
